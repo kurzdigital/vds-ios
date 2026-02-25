@@ -1,0 +1,5 @@
+framework module VDS {
+    umbrella header "VDS.h"
+    export *
+    module * { export * }
+}
