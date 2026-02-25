@@ -3,6 +3,8 @@
 #import "IDBHeader.h"
 #import "VDSFeature.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef NS_ENUM(NSInteger, IDBVerificationResult) {
     IDBVerificationResultSignatureInvalid,
     IDBVerificationResultSignatureValid,
@@ -52,3 +54,5 @@ __attribute__((visibility("default")))
                                                now:(nullable NSDate *)now;
 
 @end
+
+NS_ASSUME_NONNULL_END

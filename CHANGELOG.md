@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.2
+* Improve iOS wrapper
+
 ## 1.2.1
 * Add face image to IDB profiles
 
