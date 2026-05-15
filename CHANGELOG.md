@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.3
+* Verify expired VDS sample too
+* Fix building with gcc
+* Update CSCA MasterList
+
 ## 1.2.2
 * Improve iOS wrapper
 
