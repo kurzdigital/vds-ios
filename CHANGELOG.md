@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.4
+* Update CSCA MasterList
+* Add another IDB profile
+
 ## 1.2.3
 * Verify expired VDS sample too
 * Fix building with gcc

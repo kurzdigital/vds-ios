@@ -126,7 +126,7 @@ Messages:
 """
 
     var verificationResult: String
-    let masterListPath = Bundle.main.path(forResource: "csca-2026-05-11-08-27-28", ofType: "ml") ?? ""
+    let masterListPath = Bundle.main.path(forResource: "csca-2026-05-27-04-00-13", ofType: "ml") ?? ""
     switch idbResult.verify(masterListPath) {
     case .signatureInvalid:
         verificationResult = "Signature invalid"
@@ -164,7 +164,7 @@ Features:
 \(formatFeatures(vdsNcResult.features))
 """
 
-    let masterListPath = Bundle.main.path(forResource: "csca-2026-05-11-08-27-28", ofType: "ml") ?? ""
+    let masterListPath = Bundle.main.path(forResource: "csca-2026-05-27-04-00-13", ofType: "ml") ?? ""
     switch vdsNcResult.verify(masterListPath) {
     case .signatureInvalid:
         out += "\nVerification: Signature invalid"
