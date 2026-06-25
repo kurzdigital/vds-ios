@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.5
+* Fix parsing VDS version 4
+* Support Romania QR Code format
+
 ## 1.2.4
 * Update CSCA MasterList
 * Add another IDB profile
