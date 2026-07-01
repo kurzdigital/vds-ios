@@ -111,6 +111,8 @@ extension ExampleViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             showDialog(getVDSSummary(vdsResult: vdsResult))
         } else if let vdsNcResult = VDSNCDecoder.decode(result.text) {
             showDialog(getVDSNCSummary(vdsNcResult: vdsNcResult))
+        } else if let doc2dResult = Doc2DDecoder.decode(result.text) ?? Doc2DDecoder.decodeBytes(result.bytes) {
+            showDialog(getDoc2DSummary(doc2dResult: doc2dResult))
         } else {
             self.processingLock.signal()
         }
@@ -179,6 +181,45 @@ Features:
     return out
 }
 
+private func getDoc2DSummary(doc2dResult: Doc2DResult) -> String {
+    let h = doc2dResult.header
+    var out = """
+Version: \(h.version)
+Authority: \(h.authorityIdentifier)
+Certificate: \(h.certificateReference)
+Document type: \(h.documentType)
+Perimeter: \(h.perimeter)
+Features:
+\(formatFeatures(doc2dResult.features))
+"""
+
+    if let annex = doc2dResult.annex, !annex.isEmpty {
+        out += "Annex:\n\(formatFeatures(annex))"
+    }
+
+    out += "\nVerified: "
+    if let certificate = verifyDoc2D(doc2dResult: doc2dResult) {
+        out += "true (\(certificate))"
+    } else {
+        out += "false"
+    }
+    out += "\n"
+
+    return out
+}
+
+private func verifyDoc2D(doc2dResult: Doc2DResult) -> String? {
+    for fileName in certificates {
+        guard let data = loadFile(name: fileName) else {
+            continue
+        }
+        if doc2dResult.verify(data) {
+            return fileName
+        }
+    }
+    return nil
+}
+
 private func formatFeatures(_ features: [VDSFeature], indent: String = "") -> String {
     var output = ""
     for feature in features {
@@ -217,15 +258,6 @@ errors: \(mrzInfo.errors.count)
 }
 
 private func verify(vdsResult: VDSResult) -> String? {
-    let certificates: [String] = [
-        "KDS_EasyCard_VDS.crt",
-        "KDS_ETD.crt",
-        "KDS_TAXSTAMPS.crt",
-        "KDS_TEST_VACC.crt",
-        "KDS_VEHICLE_VIGNETTE.crt",
-        "SchoolAccess.crt",
-        "sealgen_UTTS5B.crt"
-    ]
     for fileName in certificates {
         guard let data = loadFile(name: fileName) else {
             continue
@@ -236,6 +268,17 @@ private func verify(vdsResult: VDSResult) -> String? {
     }
     return nil
 }
+
+private let certificates: [String] = [
+    "doc2d_test.crt",
+    "KDS_EasyCard_VDS.crt",
+    "KDS_ETD.crt",
+    "KDS_TAXSTAMPS.crt",
+    "KDS_TEST_VACC.crt",
+    "KDS_VEHICLE_VIGNETTE.crt",
+    "SchoolAccess.crt",
+    "sealgen_UTTS5B.crt"
+]
 
 private func loadFile(name: String) -> Data? {
     let components = name.split(separator: ".")

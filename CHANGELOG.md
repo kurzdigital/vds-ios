@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.6
+* Add support for 2D-Doc format
+
 ## 1.2.5
 * Fix parsing VDS version 4
 * Support Romania QR Code format
