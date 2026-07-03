@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.7
+* Replace timelocal() with mktime() for portability
+
 ## 1.2.6
 * Add support for 2D-Doc format
 
