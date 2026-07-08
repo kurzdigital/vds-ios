@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.8
+* Preserve already DER-encoded ECDSA signatures
+
 ## 1.2.7
 * Replace timelocal() with mktime() for portability
 
