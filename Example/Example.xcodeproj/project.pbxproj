@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2803D0602DCCA3E90063C612 /* doc2d_test.crt in Resources */ = {isa = PBXBuildFile; fileRef = 2803D05F2DCCA3E90063C612 /* doc2d_test.crt */; };
+		2803D06A2DCCA3E90063C612 /* IndonesiaKtp.crt in Resources */ = {isa = PBXBuildFile; fileRef = 2803D0692DCCA3E90063C612 /* IndonesiaKtp.crt */; };
+		2803D0682DCCA3E90063C612 /* ETD.crt in Resources */ = {isa = PBXBuildFile; fileRef = 2803D0672DCCA3E90063C612 /* ETD.crt */; };
+		2803D0662DCCA3E90063C612 /* csca-2026-07-24-04-00-30.ml in Resources */ = {isa = PBXBuildFile; fileRef = 2803D0652DCCA3E90063C612 /* csca-2026-07-24-04-00-30.ml */; };
+		2803D0642DCCA3E90063C612 /* A16ATS004009.pem in Resources */ = {isa = PBXBuildFile; fileRef = 2803D0622DCCA3E90063C612 /* A16ATS004009.pem */; };
+		2803D0632DCCA3E90063C612 /* A16ATS004008.pem in Resources */ = {isa = PBXBuildFile; fileRef = 2803D0612DCCA3E90063C612 /* A16ATS004008.pem */; };
 		2803D0552DCCA3E90063C612 /* sealgen_UTTS5B.crt in Resources */ = {isa = PBXBuildFile; fileRef = 2803D0542DCCA3E90063C612 /* sealgen_UTTS5B.crt */; };
 		2803D0562DCCA3E90063C612 /* KDS_EasyCard_VDS.crt in Resources */ = {isa = PBXBuildFile; fileRef = 2803D04E2DCCA3E90063C612 /* KDS_EasyCard_VDS.crt */; };
 		2803D0572DCCA3E90063C612 /* KDS_ETD.crt in Resources */ = {isa = PBXBuildFile; fileRef = 2803D04F2DCCA3E90063C612 /* KDS_ETD.crt */; };
@@ -40,6 +45,11 @@
 
 /* Begin PBXFileReference section */
 		2803D05F2DCCA3E90063C612 /* doc2d_test.crt */ = {isa = PBXFileReference; lastKnownFileType = file; path = doc2d_test.crt; sourceTree = "<group>"; };
+		2803D0692DCCA3E90063C612 /* IndonesiaKtp.crt */ = {isa = PBXFileReference; lastKnownFileType = file; path = IndonesiaKtp.crt; sourceTree = "<group>"; };
+		2803D0672DCCA3E90063C612 /* ETD.crt */ = {isa = PBXFileReference; lastKnownFileType = file; path = ETD.crt; sourceTree = "<group>"; };
+		2803D0652DCCA3E90063C612 /* csca-2026-07-24-04-00-30.ml */ = {isa = PBXFileReference; lastKnownFileType = file; path = csca-2026-07-24-04-00-30.ml; sourceTree = "<group>"; };
+		2803D0622DCCA3E90063C612 /* A16ATS004009.pem */ = {isa = PBXFileReference; lastKnownFileType = file; path = A16ATS004009.pem; sourceTree = "<group>"; };
+		2803D0612DCCA3E90063C612 /* A16ATS004008.pem */ = {isa = PBXFileReference; lastKnownFileType = file; path = A16ATS004008.pem; sourceTree = "<group>"; };
 		2803D04E2DCCA3E90063C612 /* KDS_EasyCard_VDS.crt */ = {isa = PBXFileReference; lastKnownFileType = file; path = KDS_EasyCard_VDS.crt; sourceTree = "<group>"; };
 		2803D04F2DCCA3E90063C612 /* KDS_ETD.crt */ = {isa = PBXFileReference; lastKnownFileType = file; path = KDS_ETD.crt; sourceTree = "<group>"; };
 		2803D0502DCCA3E90063C612 /* KDS_TAXSTAMPS.crt */ = {isa = PBXFileReference; lastKnownFileType = file; path = KDS_TAXSTAMPS.crt; sourceTree = "<group>"; };
@@ -100,6 +110,11 @@
 				388BF033283CC49E005CE271 /* LaunchScreen.storyboard */,
 				388BF036283CC49E005CE271 /* Info.plist */,
 				2803D05F2DCCA3E90063C612 /* doc2d_test.crt */,
+				2803D0692DCCA3E90063C612 /* IndonesiaKtp.crt */,
+				2803D0672DCCA3E90063C612 /* ETD.crt */,
+				2803D0652DCCA3E90063C612 /* csca-2026-07-24-04-00-30.ml */,
+				2803D0622DCCA3E90063C612 /* A16ATS004009.pem */,
+				2803D0612DCCA3E90063C612 /* A16ATS004008.pem */,
 				2803D04E2DCCA3E90063C612 /* KDS_EasyCard_VDS.crt */,
 				2803D04F2DCCA3E90063C612 /* KDS_ETD.crt */,
 				2803D0502DCCA3E90063C612 /* KDS_TAXSTAMPS.crt */,
@@ -194,6 +209,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2803D0602DCCA3E90063C612 /* doc2d_test.crt in Resources */,
+				2803D06A2DCCA3E90063C612 /* IndonesiaKtp.crt in Resources */,
+				2803D0682DCCA3E90063C612 /* ETD.crt in Resources */,
+				2803D0662DCCA3E90063C612 /* csca-2026-07-24-04-00-30.ml in Resources */,
+				2803D0642DCCA3E90063C612 /* A16ATS004009.pem in Resources */,
+				2803D0632DCCA3E90063C612 /* A16ATS004008.pem in Resources */,
 				2803D0552DCCA3E90063C612 /* sealgen_UTTS5B.crt in Resources */,
 				2803D0562DCCA3E90063C612 /* KDS_EasyCard_VDS.crt in Resources */,
 				2803D0572DCCA3E90063C612 /* KDS_ETD.crt in Resources */,

@@ -113,6 +113,10 @@ extension ExampleViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             showDialog(getVDSNCSummary(vdsNcResult: vdsNcResult))
         } else if let doc2dResult = Doc2DDecoder.decode(result.text) ?? Doc2DDecoder.decodeBytes(result.bytes) {
             showDialog(getDoc2DSummary(doc2dResult: doc2dResult))
+        } else if let checkAtResult = CheckATDecoder.decode(result.text) {
+            showDialog(getCheckATSummary(checkAtResult: checkAtResult))
+        } else if let beSealResult = BESealDecoder.decode(result.text) {
+            showDialog(getBESealSummary(beSealResult: beSealResult))
         } else {
             self.processingLock.signal()
         }
@@ -128,7 +132,7 @@ Messages:
 """
 
     var verificationResult: String
-    let masterListPath = Bundle.main.path(forResource: "csca-2026-06-24-04-00-12", ofType: "ml") ?? ""
+    let masterListPath = Bundle.main.path(forResource: "csca-2026-07-24-04-00-30", ofType: "ml") ?? ""
     switch idbResult.verify(masterListPath) {
     case .signatureInvalid:
         verificationResult = "Signature invalid"
@@ -166,7 +170,7 @@ Features:
 \(formatFeatures(vdsNcResult.features))
 """
 
-    let masterListPath = Bundle.main.path(forResource: "csca-2026-06-24-04-00-12", ofType: "ml") ?? ""
+    let masterListPath = Bundle.main.path(forResource: "csca-2026-07-24-04-00-30", ofType: "ml") ?? ""
     switch vdsNcResult.verify(masterListPath) {
     case .signatureInvalid:
         out += "\nVerification: Signature invalid"
@@ -206,6 +210,37 @@ Features:
     out += "\n"
 
     return out
+}
+
+private func getCheckATSummary(checkAtResult: CheckATResult) -> String {
+    var out = """
+Certificate: \(checkAtResult.certificateId)
+Features:
+\(formatFeatures(checkAtResult.features))
+"""
+
+    // The public keys are rotated every three months and published at
+    // https://api.check-at.gv.at/api/v2/certificates.
+    if let publicKey = loadFile(forResource: checkAtResult.certificateId, ofType: "pem") {
+        out += "\nVerified: \(checkAtResult.verify(publicKey))"
+    } else {
+        out += "\nVerified: no public key for \(checkAtResult.certificateId)"
+    }
+    out += "\n"
+
+    return out
+}
+
+private func getBESealSummary(beSealResult: BESealResult) -> String {
+    // There is no verification because the certificate the seal
+    // references with its keyId is not publicly available.
+    return """
+Version: \(beSealResult.version)
+Algorithm: \(beSealResult.algorithm)
+Key ID: \(beSealResult.keyId.map { String(format: "%02X", $0) }.joined())
+Features:
+\(formatFeatures(beSealResult.features))
+"""
 }
 
 private func verifyDoc2D(doc2dResult: Doc2DResult) -> String? {
@@ -271,6 +306,8 @@ private func verify(vdsResult: VDSResult) -> String? {
 
 private let certificates: [String] = [
     "doc2d_test.crt",
+    "ETD.crt",
+    "IndonesiaKtp.crt",
     "KDS_EasyCard_VDS.crt",
     "KDS_ETD.crt",
     "KDS_TAXSTAMPS.crt",

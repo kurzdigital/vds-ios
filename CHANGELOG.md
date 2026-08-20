@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0
+* Support Austrian ID QR Code format
+* Support DataMatrix code on Belgian passports
+
 ## 1.2.8
 * Preserve already DER-encoded ECDSA signatures
 

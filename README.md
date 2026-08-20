@@ -5,6 +5,9 @@ Parse and verify:
 * [Visible Digital Seals][vds]
 * [ICAO VDS-NC (Non-Constrained)][vdsnc]
 * [ICAO Datastructure for Barcode][idb]
+* [2D-Doc][doc2d]
+* [CHECK-AT (Austrian identity card)][checkat]
+* [Belgian Digital Seal][beseal] (parsing only)
 
 ## Example App
 
@@ -34,6 +37,12 @@ if let idbResult = IDBDecoder.decode(text) {
 	…
 } else if let vdsNcResult = VDSNCDecoder.decode(text) {
 	…
+} else if let doc2dResult = Doc2DDecoder.decode(text) {
+	…
+} else if let checkAtResult = CheckATDecoder.decode(text) {
+	…
+} else if let beSealResult = BESealDecoder.decode(text) {
+	…
 }
 ```
 
@@ -53,3 +62,6 @@ an issue in the GitHub issue tracker.
 [vds]: https://visibledigitalseal.org/
 [vdsnc]: https://www.icao.int/Security/FAL/TRIP/PublishingImages/Pages/Publications/Guidelines%20-%20VDS%20for%20Travel-Related%20Public%20Health%20Proofs.pdf
 [idb]: https://www.icao.int/sites/default/files/TRIP/Publications/ICAO-TR-ICAO-Datastructure-for-Barcode.pdf
+[doc2d]: https://fr.wikipedia.org/wiki/2D-Doc
+[checkat]: https://github.com/Yepoleb/idcard-qr
+[beseal]: https://www.consilium.europa.eu/prado/en/BEL-AO-11001/index.html
