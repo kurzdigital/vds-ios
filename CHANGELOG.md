@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.1
+* Decode the Indonesia KTP fields as the generator writes them now
+* Support IDB dates of three and four bytes
+* Fix decoding C40 triples whose packed value ends in a zero byte
+
 ## 1.3.0
 * Support Austrian ID QR Code format
 * Support DataMatrix code on Belgian passports
