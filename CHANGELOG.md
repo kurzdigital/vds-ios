@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.2
+* Support International Police Organization ID Cards
+
 ## 1.3.1
 * Decode the Indonesia KTP fields as the generator writes them now
 * Support IDB dates of three and four bytes
