@@ -111,12 +111,8 @@ extension ExampleViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             showDialog(getVDSSummary(vdsResult: vdsResult))
         } else if let vdsNcResult = VDSNCDecoder.decode(result.text) {
             showDialog(getVDSNCSummary(vdsNcResult: vdsNcResult))
-        } else if let doc2dResult = Doc2DDecoder.decode(result.text) ?? Doc2DDecoder.decodeBytes(result.bytes) {
-            showDialog(getDoc2DSummary(doc2dResult: doc2dResult))
-        } else if let checkAtResult = CheckATDecoder.decode(result.text) {
-            showDialog(getCheckATSummary(checkAtResult: checkAtResult))
-        } else if let beSealResult = BESealDecoder.decode(result.text) {
-            showDialog(getBESealSummary(beSealResult: beSealResult))
+        } else if let sealResult = SealDecoder.decode(result.text) ?? SealDecoder.decodeBytes(result.bytes) {
+            showDialog(getSealSummary(sealResult: sealResult))
         } else {
             self.processingLock.signal()
         }
@@ -185,74 +181,55 @@ Features:
     return out
 }
 
-private func getDoc2DSummary(doc2dResult: Doc2DResult) -> String {
-    let h = doc2dResult.header
-    var out = """
-Version: \(h.version)
-Authority: \(h.authorityIdentifier)
-Certificate: \(h.certificateReference)
-Document type: \(h.documentType)
-Perimeter: \(h.perimeter)
-Features:
-\(formatFeatures(doc2dResult.features))
-"""
-
-    if let annex = doc2dResult.annex, !annex.isEmpty {
-        out += "Annex:\n\(formatFeatures(annex))"
+// One branch for every proprietary format. Metadata and features are
+// rendered generically, so a new format needs no change here.
+private func getSealSummary(sealResult: SealResult) -> String {
+    var out = "Format: \(sealResult.format)\n"
+    if !sealResult.keyIdentifier.isEmpty {
+        out += "Key: \(sealResult.keyIdentifier)\n"
     }
-
-    out += "\nVerified: "
-    if let certificate = verifyDoc2D(doc2dResult: doc2dResult) {
-        out += "true (\(certificate))"
-    } else {
-        out += "false"
+    if !sealResult.metadata.isEmpty {
+        out += "Metadata:\n\(formatFeatures(sealResult.metadata))"
     }
-    out += "\n"
+    out += "Features:\n\(formatFeatures(sealResult.features))"
+    if !sealResult.unsignedFeatures.isEmpty {
+        out += "Unsigned:\n\(formatFeatures(sealResult.unsignedFeatures))"
+    }
+    out += "\nVerified: \(verifySeal(sealResult: sealResult))\n"
 
     return out
 }
 
-private func getCheckATSummary(checkAtResult: CheckATResult) -> String {
-    var out = """
-Certificate: \(checkAtResult.certificateId)
-Features:
-\(formatFeatures(checkAtResult.features))
-"""
-
-    // The public keys are rotated every three months and published at
-    // https://api.check-at.gv.at/api/v2/certificates.
-    if let publicKey = loadFile(forResource: checkAtResult.certificateId, ofType: "pem") {
-        out += "\nVerified: \(checkAtResult.verify(publicKey))"
-    } else {
-        out += "\nVerified: no public key for \(checkAtResult.certificateId)"
-    }
-    out += "\n"
-
-    return out
-}
-
-private func getBESealSummary(beSealResult: BESealResult) -> String {
-    // There is no verification because the certificate the seal
-    // references with its keyId is not publicly available.
-    return """
-Version: \(beSealResult.version)
-Algorithm: \(beSealResult.algorithm)
-Key ID: \(beSealResult.keyId.map { String(format: "%02X", $0) }.joined())
-Features:
-\(formatFeatures(beSealResult.features))
-"""
-}
-
-private func verifyDoc2D(doc2dResult: Doc2DResult) -> String? {
-    for fileName in certificates {
-        guard let data = loadFile(name: fileName) else {
-            continue
+// The seal says what kind of trust material it needs, so this works for
+// every format without knowing which one it is.
+private func verifySeal(sealResult: SealResult) -> String {
+    switch sealResult.trustRequirement {
+    case SealTrustRequirement.none:
+        return "not verifiable"
+    case .publicKey:
+        // The keys are published per key identifier. For CHECK-AT they
+        // are rotated every three months and published at
+        // https://api.check-at.gv.at/api/v2/certificates.
+        guard let publicKey = loadFile(
+            forResource: sealResult.keyIdentifier,
+            ofType: "pem"
+        ) else {
+            return "no public key for \(sealResult.keyIdentifier)"
         }
-        if doc2dResult.verify(data) {
-            return fileName
+        return sealResult.verify(publicKey) == .valid ? "true" : "false"
+    case .certificate:
+        for fileName in certificates {
+            guard let data = loadFile(name: fileName) else {
+                continue
+            }
+            if sealResult.verify(data) == .valid {
+                return "true (\(fileName))"
+            }
         }
+        return "false"
+    @unknown default:
+        return "unknown trust requirement"
     }
-    return nil
 }
 
 private func formatFeatures(_ features: [VDSFeature], indent: String = "") -> String {

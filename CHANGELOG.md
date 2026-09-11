@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.0.0
+* Decode all proprietary formats into one collective type
+* Add vds::decodeSeal() to detect the format of a barcode
+* Unify verification across the proprietary formats
+
+Breaking: `doc2d::Doc2D`, `checkat::CheckAT` and `beseal::BESeal` are
+replaced by `vds::Seal`, and `Doc2DDecoder`, `CheckAtDecoder` and
+`BeSealDecoder` by `SealDecoder` on Android and iOS. What used to be a
+header per format is a list of named metadata features now. See
+[README_SEAL.md](README_SEAL.md).
+
 ## 1.3.2
 * Support International Police Organization ID Cards
 

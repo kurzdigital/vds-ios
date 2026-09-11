@@ -5,6 +5,9 @@ Parse and verify:
 * [Visible Digital Seals][vds]
 * [ICAO VDS-NC (Non-Constrained)][vdsnc]
 * [ICAO Datastructure for Barcode][idb]
+
+The proprietary formats below all decode into one collective type:
+
 * [2D-Doc][doc2d]
 * [CHECK-AT (Austrian identity card)][checkat]
 * [Belgian Digital Seal][beseal] (parsing only)
@@ -37,12 +40,46 @@ if let idbResult = IDBDecoder.decode(text) {
 	…
 } else if let vdsNcResult = VDSNCDecoder.decode(text) {
 	…
-} else if let doc2dResult = Doc2DDecoder.decode(text) {
+} else if let sealResult = SealDecoder.decode(text) ?? SealDecoder.decodeBytes(bytes) {
 	…
-} else if let checkAtResult = CheckATDecoder.decode(text) {
-	…
-} else if let beSealResult = BESealDecoder.decode(text) {
-	…
+}
+```
+
+2D-Doc, CHECK-AT and the Belgian Digital Seal all decode into one
+`SealResult`. A new proprietary format is added in the native library.
+As long as it is verified with a certificate or a public key, nothing in
+this wrapper or in your app has to change for it. A format that needs
+another kind of trust material adds a `SealTrustRequirement`, which a
+`switch` over it has to handle.
+
+`sealResult.format` says which format it is, `SealFormatDoc2D` for
+example. Note that `VDSDecoder` has to be tried first because a binary
+2D-Doc borrows the VDS header.
+
+What used to be the header of the individual formats is in
+`sealResult.metadata`, an array of `VDSFeature` just like
+`sealResult.features`, so both can be rendered without knowing the
+format. Features that are not covered by the signature, like the 2D-Doc
+annex, are in `sealResult.unsignedFeatures`.
+
+The seal says what kind of trust material it needs:
+
+```swift
+switch sealResult.trustRequirement {
+case .certificate:
+	// sealResult.keyIdentifier names the certificate.
+	_ = sealResult.verify(certificate) == .valid
+case .publicKey:
+	// sealResult.keyIdentifier names the public key. For CHECK-AT the
+	// keys are rotated every three months and published at
+	// https://api.check-at.gv.at/api/v2/certificates.
+	_ = sealResult.verify(publicKey) == .valid
+case SealTrustRequirement.none:
+	// The seal cannot be verified. This is the case for the Belgian
+	// Digital Seal, whose certificate is not publicly available.
+	break
+@unknown default:
+	break
 }
 ```
 

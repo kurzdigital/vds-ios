@@ -4,37 +4,9 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>ios-arm64-simulator/VDS.framework/Headers/BESealDecoder.h</key>
-		<data>
-		KNOyYNaloKrE/oQSNhh/efsg/KM=
-		</data>
-		<key>ios-arm64-simulator/VDS.framework/Headers/BESealResult.h</key>
-		<data>
-		nD2wpe5PVN3b8rdgbSwugIh5ONM=
-		</data>
-		<key>ios-arm64-simulator/VDS.framework/Headers/CheckATDecoder.h</key>
-		<data>
-		j82KENBWsePb1Yqrcd8TvB+HD/I=
-		</data>
-		<key>ios-arm64-simulator/VDS.framework/Headers/CheckATResult.h</key>
-		<data>
-		dnh4bmMogayzN2ZLigjAOkC/+Lo=
-		</data>
 		<key>ios-arm64-simulator/VDS.framework/Headers/Common.h</key>
 		<data>
 		iV8pVOFCj2MX1Q7RZqMUHY5P3nM=
-		</data>
-		<key>ios-arm64-simulator/VDS.framework/Headers/Doc2DDecoder.h</key>
-		<data>
-		L4iShhcEQMIMP132ExWxL51/r6I=
-		</data>
-		<key>ios-arm64-simulator/VDS.framework/Headers/Doc2DHeader.h</key>
-		<data>
-		FobCqjs2QcxWPuucB0TKEpAh8Zs=
-		</data>
-		<key>ios-arm64-simulator/VDS.framework/Headers/Doc2DResult.h</key>
-		<data>
-		0FKFUj9TAj5vQo1kzupn56RysYM=
 		</data>
 		<key>ios-arm64-simulator/VDS.framework/Headers/IDBDecoder.h</key>
 		<data>
@@ -52,9 +24,17 @@
 		<data>
 		4nX9OPrk1LE362tpG4QT5DDeBRI=
 		</data>
+		<key>ios-arm64-simulator/VDS.framework/Headers/Seal.h</key>
+		<data>
+		FC8yBrjk7muY+1+WfwvxiZBNgh4=
+		</data>
+		<key>ios-arm64-simulator/VDS.framework/Headers/SealDecoder.h</key>
+		<data>
+		QeslH8bgGVxQBm458e0O9Sfh3tY=
+		</data>
 		<key>ios-arm64-simulator/VDS.framework/Headers/VDS.h</key>
 		<data>
-		iJnYtzrz430r1GwMnswxM++IWgM=
+		tgGBt4/qnzPDIjn6qWOf8jFzlcI=
 		</data>
 		<key>ios-arm64-simulator/VDS.framework/Headers/VDSDecoder.h</key>
 		<data>
@@ -86,7 +66,7 @@
 		</data>
 		<key>ios-arm64-simulator/VDS.framework/Info.plist</key>
 		<data>
-		p7baqXEHPYlf3f4u4/+qRibjGIE=
+		2v7aOGcyKcDFILAKlCaTCkd82fI=
 		</data>
 		<key>ios-arm64-simulator/VDS.framework/Modules/module.modulemap</key>
 		<data>
@@ -98,39 +78,11 @@
 		</data>
 		<key>ios-arm64-simulator/VDS.framework/VDS</key>
 		<data>
-		MGA6UGbEyDvRwUCgV49NnJ4OJVg=
-		</data>
-		<key>ios-arm64/VDS.framework/Headers/BESealDecoder.h</key>
-		<data>
-		KNOyYNaloKrE/oQSNhh/efsg/KM=
-		</data>
-		<key>ios-arm64/VDS.framework/Headers/BESealResult.h</key>
-		<data>
-		nD2wpe5PVN3b8rdgbSwugIh5ONM=
-		</data>
-		<key>ios-arm64/VDS.framework/Headers/CheckATDecoder.h</key>
-		<data>
-		j82KENBWsePb1Yqrcd8TvB+HD/I=
-		</data>
-		<key>ios-arm64/VDS.framework/Headers/CheckATResult.h</key>
-		<data>
-		dnh4bmMogayzN2ZLigjAOkC/+Lo=
+		9qYE5Q2yj7er8BsxJ7Ke4Yvf4Fw=
 		</data>
 		<key>ios-arm64/VDS.framework/Headers/Common.h</key>
 		<data>
 		iV8pVOFCj2MX1Q7RZqMUHY5P3nM=
-		</data>
-		<key>ios-arm64/VDS.framework/Headers/Doc2DDecoder.h</key>
-		<data>
-		L4iShhcEQMIMP132ExWxL51/r6I=
-		</data>
-		<key>ios-arm64/VDS.framework/Headers/Doc2DHeader.h</key>
-		<data>
-		FobCqjs2QcxWPuucB0TKEpAh8Zs=
-		</data>
-		<key>ios-arm64/VDS.framework/Headers/Doc2DResult.h</key>
-		<data>
-		0FKFUj9TAj5vQo1kzupn56RysYM=
 		</data>
 		<key>ios-arm64/VDS.framework/Headers/IDBDecoder.h</key>
 		<data>
@@ -148,9 +100,17 @@
 		<data>
 		4nX9OPrk1LE362tpG4QT5DDeBRI=
 		</data>
+		<key>ios-arm64/VDS.framework/Headers/Seal.h</key>
+		<data>
+		FC8yBrjk7muY+1+WfwvxiZBNgh4=
+		</data>
+		<key>ios-arm64/VDS.framework/Headers/SealDecoder.h</key>
+		<data>
+		QeslH8bgGVxQBm458e0O9Sfh3tY=
+		</data>
 		<key>ios-arm64/VDS.framework/Headers/VDS.h</key>
 		<data>
-		iJnYtzrz430r1GwMnswxM++IWgM=
+		tgGBt4/qnzPDIjn6qWOf8jFzlcI=
 		</data>
 		<key>ios-arm64/VDS.framework/Headers/VDSDecoder.h</key>
 		<data>
@@ -182,7 +142,7 @@
 		</data>
 		<key>ios-arm64/VDS.framework/Info.plist</key>
 		<data>
-		QqJ9CRGYrkWHdKyI68XHxDz8KIc=
+		WgAddmIRsGhtqUfIDUMrzJUZmJE=
 		</data>
 		<key>ios-arm64/VDS.framework/Modules/module.modulemap</key>
 		<data>
@@ -194,65 +154,16 @@
 		</data>
 		<key>ios-arm64/VDS.framework/VDS</key>
 		<data>
-		KrbIHxUaf1/n8dT63xg6cP9+XNY=
+		dUgSjMd9d+XtVIbDmc+k/y2FIzE=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>ios-arm64-simulator/VDS.framework/Headers/BESealDecoder.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			P2NnCFQEhWHXYzZShYxeZGAFqjgAUBgZBPWU6604RvA=
-			</data>
-		</dict>
-		<key>ios-arm64-simulator/VDS.framework/Headers/BESealResult.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			UWjAUJf0dzKoyyVfFeAARRIQ5fJeXc9cykjgYyQZY9M=
-			</data>
-		</dict>
-		<key>ios-arm64-simulator/VDS.framework/Headers/CheckATDecoder.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			Pt7L1OqDFHn/TqHTxYIb0+Ic9J+5Qq+jsLfk77bGYts=
-			</data>
-		</dict>
-		<key>ios-arm64-simulator/VDS.framework/Headers/CheckATResult.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			Urt0EeoMJbN1bu+JlUMRQURRBWpzshjyWh3ieZMEWtc=
-			</data>
-		</dict>
 		<key>ios-arm64-simulator/VDS.framework/Headers/Common.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
 			4ugEU8zMlme+erjgFEhDqdmxH9GQbeJltjsOF7x5ONU=
-			</data>
-		</dict>
-		<key>ios-arm64-simulator/VDS.framework/Headers/Doc2DDecoder.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			Us/vQ5FfnC9nmkG2qbIe4DIGzTLrPlzuXBB5l7nRekY=
-			</data>
-		</dict>
-		<key>ios-arm64-simulator/VDS.framework/Headers/Doc2DHeader.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			SUg4dzVKL2/ItnWWFCWxieOWUGAfT7/F/wFXDkkK6Zo=
-			</data>
-		</dict>
-		<key>ios-arm64-simulator/VDS.framework/Headers/Doc2DResult.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			P9lyVPO708OqWlbwpCPfUNRhc476T/GWPzKcel1UuIQ=
 			</data>
 		</dict>
 		<key>ios-arm64-simulator/VDS.framework/Headers/IDBDecoder.h</key>
@@ -283,11 +194,25 @@
 			CPsz/irnUFm8H5+Mgp2/1ayimSuB36FNnZXoTAD2O2E=
 			</data>
 		</dict>
+		<key>ios-arm64-simulator/VDS.framework/Headers/Seal.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			v/AFi1kkPoYi6fq61wzElTm/z5D2PIRcnHApOjZECaI=
+			</data>
+		</dict>
+		<key>ios-arm64-simulator/VDS.framework/Headers/SealDecoder.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			gavc/1IGQTkXZebyLeNcnswXrE8uOJiucoBvHHLZe/g=
+			</data>
+		</dict>
 		<key>ios-arm64-simulator/VDS.framework/Headers/VDS.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			gY/rQQEeJTZYgpZ/Rp414JXpSYDv+fnz/X7I2FRqDUs=
+			GJMPNpBnSY32DpgzwfPeXtXoYaAqr2D7vJsO20kSOXU=
 			</data>
 		</dict>
 		<key>ios-arm64-simulator/VDS.framework/Headers/VDSDecoder.h</key>
@@ -343,7 +268,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3ZMDKEEaGwLe/X/Ds/fanAkB426WNtfwfRIasVJiUKo=
+			BEYgBc3QfmxoNMa0hXQI3htiA/B2zH6YJn454gZyKpo=
 			</data>
 		</dict>
 		<key>ios-arm64-simulator/VDS.framework/Modules/module.modulemap</key>
@@ -364,35 +289,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			B7KGm5Mrocp6K+tfowz2jPKVwH5jU+Tz+iLavXmq3ag=
-			</data>
-		</dict>
-		<key>ios-arm64/VDS.framework/Headers/BESealDecoder.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			P2NnCFQEhWHXYzZShYxeZGAFqjgAUBgZBPWU6604RvA=
-			</data>
-		</dict>
-		<key>ios-arm64/VDS.framework/Headers/BESealResult.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			UWjAUJf0dzKoyyVfFeAARRIQ5fJeXc9cykjgYyQZY9M=
-			</data>
-		</dict>
-		<key>ios-arm64/VDS.framework/Headers/CheckATDecoder.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			Pt7L1OqDFHn/TqHTxYIb0+Ic9J+5Qq+jsLfk77bGYts=
-			</data>
-		</dict>
-		<key>ios-arm64/VDS.framework/Headers/CheckATResult.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			Urt0EeoMJbN1bu+JlUMRQURRBWpzshjyWh3ieZMEWtc=
+			lZq0+vo/GkU3h8qZAs5sPQrouv8/kbFQnBSch+mQ6so=
 			</data>
 		</dict>
 		<key>ios-arm64/VDS.framework/Headers/Common.h</key>
@@ -400,27 +297,6 @@
 			<key>hash2</key>
 			<data>
 			4ugEU8zMlme+erjgFEhDqdmxH9GQbeJltjsOF7x5ONU=
-			</data>
-		</dict>
-		<key>ios-arm64/VDS.framework/Headers/Doc2DDecoder.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			Us/vQ5FfnC9nmkG2qbIe4DIGzTLrPlzuXBB5l7nRekY=
-			</data>
-		</dict>
-		<key>ios-arm64/VDS.framework/Headers/Doc2DHeader.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			SUg4dzVKL2/ItnWWFCWxieOWUGAfT7/F/wFXDkkK6Zo=
-			</data>
-		</dict>
-		<key>ios-arm64/VDS.framework/Headers/Doc2DResult.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			P9lyVPO708OqWlbwpCPfUNRhc476T/GWPzKcel1UuIQ=
 			</data>
 		</dict>
 		<key>ios-arm64/VDS.framework/Headers/IDBDecoder.h</key>
@@ -451,11 +327,25 @@
 			CPsz/irnUFm8H5+Mgp2/1ayimSuB36FNnZXoTAD2O2E=
 			</data>
 		</dict>
+		<key>ios-arm64/VDS.framework/Headers/Seal.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			v/AFi1kkPoYi6fq61wzElTm/z5D2PIRcnHApOjZECaI=
+			</data>
+		</dict>
+		<key>ios-arm64/VDS.framework/Headers/SealDecoder.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			gavc/1IGQTkXZebyLeNcnswXrE8uOJiucoBvHHLZe/g=
+			</data>
+		</dict>
 		<key>ios-arm64/VDS.framework/Headers/VDS.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			gY/rQQEeJTZYgpZ/Rp414JXpSYDv+fnz/X7I2FRqDUs=
+			GJMPNpBnSY32DpgzwfPeXtXoYaAqr2D7vJsO20kSOXU=
 			</data>
 		</dict>
 		<key>ios-arm64/VDS.framework/Headers/VDSDecoder.h</key>
@@ -511,7 +401,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			TqBxv7A2y6sO569YiiVgfr3hs8ZAwIGr6hnASDATVlQ=
+			fW51OW9anX69W1VjZN5lJYnuwwZ8aRGL+5/Yq8lcBKg=
 			</data>
 		</dict>
 		<key>ios-arm64/VDS.framework/Modules/module.modulemap</key>
@@ -532,7 +422,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			SrwOSWFDWwIsU1+Qv0oPXqoxeWPtmPmx1NnZfZZGU0Q=
+			tOfvWubF/6zvy01h4fMWvPZ85jJ9/vRp0XwJ3NqtP/M=
 			</data>
 		</dict>
 	</dict>

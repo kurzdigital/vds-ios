@@ -1,15 +1,10 @@
 #ifndef VDS_h
 #define VDS_h
 
-#import "BESealDecoder.h"
-#import "BESealResult.h"
-#import "CheckATDecoder.h"
-#import "CheckATResult.h"
-#import "Doc2DHeader.h"
-#import "Doc2DDecoder.h"
-#import "Doc2DResult.h"
 #import "IDBHeader.h"
 #import "IDBDecoder.h"
+#import "Seal.h"
+#import "SealDecoder.h"
 #import "VDSFeature.h"
 #import "VDSHeader.h"
 #import "VDSNC.h"
