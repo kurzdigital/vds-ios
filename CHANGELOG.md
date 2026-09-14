@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.0.1
+* Fix exported symbols of iOS wrapper
+
 ## 2.0.0
 * Decode all proprietary formats into one collective type
 * Add vds::decodeSeal() to detect the format of a barcode

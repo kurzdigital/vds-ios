@@ -4,6 +4,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// The framework is built with hidden visibility, so the string constants
+// have to be exported explicitly like the classes are.
+#define VDS_EXPORT extern __attribute__((visibility("default")))
+
 // What kind of trust material verify() requires. Lets a caller supply
 // the right input without knowing the format.
 typedef NS_ENUM(NSInteger, SealTrustRequirement) {
@@ -20,19 +24,19 @@ typedef NS_ENUM(NSInteger, SealVerification) {
 
 // A format is a string so a new one cannot break a switch over the
 // known ones.
-extern NSString * const SealFormatDoc2D;
-extern NSString * const SealFormatCheckAT;
-extern NSString * const SealFormatBESeal;
+VDS_EXPORT NSString * const SealFormatDoc2D;
+VDS_EXPORT NSString * const SealFormatCheckAT;
+VDS_EXPORT NSString * const SealFormatBESeal;
 
 // Metadata names shared between formats. A format sets what it has.
-extern NSString * const SealMetaVersion;
-extern NSString * const SealMetaAlgorithm;
-extern NSString * const SealMetaIssuer;
-extern NSString * const SealMetaIssuerCountry;
-extern NSString * const SealMetaCertificateReference;
-extern NSString * const SealMetaDocumentType;
-extern NSString * const SealMetaDocumentIssueDate;
-extern NSString * const SealMetaSignatureCreationDate;
+VDS_EXPORT NSString * const SealMetaVersion;
+VDS_EXPORT NSString * const SealMetaAlgorithm;
+VDS_EXPORT NSString * const SealMetaIssuer;
+VDS_EXPORT NSString * const SealMetaIssuerCountry;
+VDS_EXPORT NSString * const SealMetaCertificateReference;
+VDS_EXPORT NSString * const SealMetaDocumentType;
+VDS_EXPORT NSString * const SealMetaDocumentIssueDate;
+VDS_EXPORT NSString * const SealMetaSignatureCreationDate;
 
 // One type for all proprietary seal formats. What used to be a per
 // format header is a list of named metadata features here.
