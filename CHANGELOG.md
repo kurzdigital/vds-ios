@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.1.0
+* Revert split IPO name into two fields
+
 ## 2.0.1
 * Fix exported symbols of iOS wrapper
 
