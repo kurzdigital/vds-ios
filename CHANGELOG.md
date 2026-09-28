@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.2.2
+* iOS: raise the minimum iOS version to 15.0
+* iOS: stop exporting the OpenSSL and zlib symbols
+
+## 2.2.1
+* Update OpenSSL to 3.5.8 (LTS)
+
+## 2.2.0
+* Add verify(TrustMaterial) to VDS, VDS-NC, IDB and seals, returning one
+  status after ICAO Doc 9303-13, Appendix D, including expired certificates
+* Read trust material from X.509 and PEM files, master lists and PKCS#7 files
+* Read certificates and public keys as PEM or DER
+* Treat a certificate with an unreadable validity period as not valid
+* Fix memory leaks when reading certificate and CMS files
+
 ## 2.1.0
 * Revert split IPO name into two fields
 
