@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.3
+* iOS: build with the release SDK of Xcode 27.0. App Store Connect rejected
+  apps with 2.2.2, which was built with the iOS 27.1 SDK (ITMS-90512)
+
 ## 2.2.2
 * iOS: raise the minimum iOS version to 15.0
 * iOS: stop exporting the OpenSSL and zlib symbols
