@@ -19,6 +19,12 @@ __attribute__((visibility("default")))
                              digest:(NSData *)digest
                                 now:(nullable NSDate *)now;
 
++ (VDSVerification *)verifyWithTrustMaterial:(VDSTrustMaterial *)trust
+                                 requirement:(SealTrustRequirement)requirement
+                                   signature:(NSData *)signature
+                                      digest:(NSData *)digest
+                                         now:(NSDate *)now;
+
 @end
 
 NS_ASSUME_NONNULL_END

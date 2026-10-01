@@ -83,6 +83,28 @@ case SealTrustRequirement.none:
 }
 ```
 
+### Verification status
+
+`VDSResult`, `VDSNC`, `IDBResult` and `SealResult` can also be verified
+the same way. Pass the paths of the trust material and get a status that
+follows the validation policy of ICAO Doc 9303-13, Appendix D:
+
+```swift
+let trust = VDSTrustMaterial(
+	// Signer certificates. X.509 files or CMS files like .ml and .p7b.
+	certificates: [idbP7bPath, vdsP7bPath],
+	// CSCA lists for certificates embedded in a seal (VDS-NC, IDB).
+	cms: [cscaMasterListPath],
+	// Public keys for seals that are signed with a bare key (CHECK-AT).
+	publicKeys: [publicKeyPath])
+let verification = idbResult.verify(with: trust)
+```
+
+`verification.status` is a `VDSVerificationStatus`: `.valid`,
+`.expiredCertificate`, `.unknownCertificate`, `.untrustedCertificate`,
+`.invalidSignature` or `.unsigned`. `verification.certificate` holds the
+DER encoding of the certificate that verified the signature.
+
 ## Changelog
 
 [Changelog](CHANGELOG.md)

@@ -44,6 +44,11 @@ __attribute__((visibility("default")))
                                   profiles:(nullable NSString *)profiles
                                        now:(nullable NSDate *)now;
 
++ (VDSVerification *)verifyWithBarcode:(NSString *)barcode
+                         trustMaterial:(VDSTrustMaterial *)trust
+                              profiles:(nullable NSString *)profiles
+                                   now:(NSDate *)now;
+
 @end
 
 NS_ASSUME_NONNULL_END

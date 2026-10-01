@@ -15,6 +15,7 @@ NSDate *timeToNSDate(time_t);
 time_t dateToTime(NSDate * _Nullable);
 NSData *vectorToNSData(const std::vector<unsigned char> &);
 NSData *arrayToNSData(const unsigned char *, size_t);
+std::vector<unsigned char> dataToVector(NSData * _Nullable);
 };
 
 NS_ASSUME_NONNULL_END

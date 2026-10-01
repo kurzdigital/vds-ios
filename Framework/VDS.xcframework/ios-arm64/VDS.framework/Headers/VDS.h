@@ -10,6 +10,7 @@
 #import "VDSNC.h"
 #import "VDSNCDecoder.h"
 #import "VDSResult.h"
+#import "VDSVerification.h"
 #import "VDSDecoder.h"
 
 #endif

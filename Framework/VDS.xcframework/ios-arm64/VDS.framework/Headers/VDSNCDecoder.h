@@ -20,6 +20,12 @@ __attribute__((visibility("default")))
                                           digest:(NSData *)digest
                                              now:(nullable NSDate *)now;
 
++ (VDSVerification *)verifyWithCertificate:(NSData *)certificate
+                                 signature:(NSData *)signature
+                                    digest:(NSData *)digest
+                             trustMaterial:(VDSTrustMaterial *)trust
+                                       now:(NSDate *)now;
+
 @end
 
 NS_ASSUME_NONNULL_END

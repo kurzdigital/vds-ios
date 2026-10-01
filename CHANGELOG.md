@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.3.0
+* iOS, Android: add verify() with trust material to VDS, VDS-NC, IDB and
+  seals, returning the status after ICAO Doc 9303-13, Appendix D
+* Add vds::verifyVds() and vds::verifyVdsNc() to verify without keeping
+  the decoded object
+
 ## 2.2.3
 * iOS: build with the release SDK of Xcode 27.0. App Store Connect rejected
   apps with 2.2.2, which was built with the iOS 27.1 SDK (ITMS-90512)

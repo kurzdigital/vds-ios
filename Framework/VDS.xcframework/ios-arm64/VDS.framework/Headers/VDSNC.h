@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 
 #import "VDSFeature.h"
+#import "VDSVerification.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -44,6 +45,11 @@ __attribute__((visibility("default")))
 
 - (VDSNCVerificationResult)verify:(NSString *)cmsFilePath
                                now:(nullable NSDate *)now;
+
+- (VDSVerification *)verifyWithTrustMaterial:(VDSTrustMaterial *)trust;
+
+- (VDSVerification *)verifyWithTrustMaterial:(VDSTrustMaterial *)trust
+                                         now:(NSDate *)now;
 
 @end
 
