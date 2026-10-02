@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.1
+* Read each trust file only once when verifying an embedded certificate,
+  which halves the time for a seal that chains to a CSCA of a master list
+
 ## 2.3.0
 * iOS, Android: add verify() with trust material to VDS, VDS-NC, IDB and
   seals, returning the status after ICAO Doc 9303-13, Appendix D
