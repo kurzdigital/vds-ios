@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.4.1
+* Accept certificates whose EC key gives the curve as explicit parameters
+  when an embedded certificate is checked against the CSCAs of a master
+  list, as ICAO Doc 9303-12 requires. OpenSSL 3 rejected them, so VDS-NC,
+  IDB and seals that chain to such a CSCA, like the German one, were
+  reported as untrusted
+
 ## 2.4.0
 * Parse seals after BSI TR-03171, such as the German certificate of good
   conduct, with the new feature types `UUID` and `DATESTR`
