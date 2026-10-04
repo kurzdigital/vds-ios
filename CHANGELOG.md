@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.4.0
+* Parse seals after BSI TR-03171, such as the German certificate of good
+  conduct, with the new feature types `UUID` and `DATESTR`
+* Find the certificate of the signer `DEZV` by its SHA-1 digest
+* Hash the signed data of a VDS by the length of the key, as ICAO Doc
+  9303-13, 2.4 asks: SHA-224, SHA-256, SHA-384 or SHA-512. Seals with
+  224-bit keys, like German visa and address stickers, and seals with
+  P-521 keys verify now
+* Add `digest` to VDS and to the iOS and Android results; `sha256` is
+  deprecated
+* Android: `VdsDecoder.Vds` takes `digest` as a new last parameter, so
+  code that creates it needs to be compiled again
+* iOS: ship only the public headers
+
 ## 2.3.1
 * Read each trust file only once when verifying an embedded certificate,
   which halves the time for a seal that chains to a CSCA of a master list
