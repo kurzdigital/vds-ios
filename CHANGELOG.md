@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.5.0
+* Decode the content of seals after BSI TR-03171 by the document profile
+  that the UUID in tag 0 names. A profile maps these UUIDs to the profiles
+  of the content tags in the new member `profilesByUuid`, and JSON
+  profiles give them with `uuid`. The name of the document profile
+  becomes the name of the seal
+* Add the feature type `INTBE` for big-endian integers like ASN.1 INTEGER
+
 ## 2.4.1
 * Accept certificates whose EC key gives the curve as explicit parameters
   when an embedded certificate is checked against the CSCAs of a master
@@ -20,6 +28,8 @@
 * Android: `VdsDecoder.Vds` takes `digest` as a new last parameter, so
   code that creates it needs to be compiled again
 * iOS: ship only the public headers
+* Build OpenSSL with assembly optimizations, which about halves the
+  time for checking a signature
 
 ## 2.3.1
 * Read each trust file only once when verifying an embedded certificate,
