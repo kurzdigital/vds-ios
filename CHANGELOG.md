@@ -1,49 +1,33 @@
 # Changelog
 
+## 2.5.1
+* Build OpenSSL without SM2, SM3 and SM4, saving about 0.6 MB
+
 ## 2.5.0
-* Decode the content of seals after BSI TR-03171 by the document profile
-  that the UUID in tag 0 names. A profile maps these UUIDs to the profiles
-  of the content tags in the new member `profilesByUuid`, and JSON
-  profiles give them with `uuid`. The name of the document profile
-  becomes the name of the seal
+* Decode TR-03171 content by document profile with `profilesByUuid`
 * Add the feature type `INTBE` for big-endian integers like ASN.1 INTEGER
 
 ## 2.4.1
-* Accept certificates whose EC key gives the curve as explicit parameters
-  when an embedded certificate is checked against the CSCAs of a master
-  list, as ICAO Doc 9303-12 requires. OpenSSL 3 rejected them, so VDS-NC,
-  IDB and seals that chain to such a CSCA, like the German one, were
-  reported as untrusted
+* Accept CSCAs with explicit EC parameters in master list chains
 
 ## 2.4.0
-* Parse seals after BSI TR-03171, such as the German certificate of good
-  conduct, with the new feature types `UUID` and `DATESTR`
+* Parse BSI TR-03171 seals with the new feature types `UUID` and `DATESTR`
 * Find the certificate of the signer `DEZV` by its SHA-1 digest
-* Hash the signed data of a VDS by the length of the key, as ICAO Doc
-  9303-13, 2.4 asks: SHA-224, SHA-256, SHA-384 or SHA-512. Seals with
-  224-bit keys, like German visa and address stickers, and seals with
-  P-521 keys verify now
-* Add `digest` to VDS and to the iOS and Android results; `sha256` is
-  deprecated
-* Android: `VdsDecoder.Vds` takes `digest` as a new last parameter, so
-  code that creates it needs to be compiled again
+* Hash VDS data by key length (SHA-224 to SHA-512), as ICAO 9303-13 asks
+* Add `digest` to VDS and to the iOS and Android results; deprecate `sha256`
+* Android: `VdsDecoder.Vds` takes `digest` as a new last parameter
 * iOS: ship only the public headers
-* Build OpenSSL with assembly optimizations, which about halves the
-  time for checking a signature
+* Build OpenSSL with assembly optimizations, halving signature checks
 
 ## 2.3.1
-* Read each trust file only once when verifying an embedded certificate,
-  which halves the time for a seal that chains to a CSCA of a master list
+* Read each trust file only once when verifying an embedded certificate
 
 ## 2.3.0
-* iOS, Android: add verify() with trust material to VDS, VDS-NC, IDB and
-  seals, returning the status after ICAO Doc 9303-13, Appendix D
-* Add vds::verifyVds() and vds::verifyVdsNc() to verify without keeping
-  the decoded object
+* iOS, Android: add verify() with trust material to VDS, VDS-NC, IDB, seals
+* Add vds::verifyVds() and vds::verifyVdsNc() to verify in one call
 
 ## 2.2.3
-* iOS: build with the release SDK of Xcode 27.0. App Store Connect rejected
-  apps with 2.2.2, which was built with the iOS 27.1 SDK (ITMS-90512)
+* iOS: build with the Xcode 27.0 release SDK, as App Store Connect requires
 
 ## 2.2.2
 * iOS: raise the minimum iOS version to 15.0
@@ -53,9 +37,8 @@
 * Update OpenSSL to 3.5.8 (LTS)
 
 ## 2.2.0
-* Add verify(TrustMaterial) to VDS, VDS-NC, IDB and seals, returning one
-  status after ICAO Doc 9303-13, Appendix D, including expired certificates
-* Read trust material from X.509 and PEM files, master lists and PKCS#7 files
+* Add verify(TrustMaterial) to VDS, VDS-NC, IDB and seals after ICAO 9303-13
+* Read trust material from X.509 and PEM files, master lists and PKCS#7
 * Read certificates and public keys as PEM or DER
 * Treat a certificate with an unreadable validity period as not valid
 * Fix memory leaks when reading certificate and CMS files
@@ -70,12 +53,7 @@
 * Decode all proprietary formats into one collective type
 * Add vds::decodeSeal() to detect the format of a barcode
 * Unify verification across the proprietary formats
-
-Breaking: `doc2d::Doc2D`, `checkat::CheckAT` and `beseal::BESeal` are
-replaced by `vds::Seal`, and `Doc2DDecoder`, `CheckAtDecoder` and
-`BeSealDecoder` by `SealDecoder` on Android and iOS. What used to be a
-header per format is a list of named metadata features now. See
-[README_SEAL.md](README_SEAL.md).
+* Breaking: `vds::Seal` replaces the per-format types, see README_SEAL.md
 
 ## 1.3.2
 * Support International Police Organization ID Cards
@@ -140,7 +118,7 @@ header per format is a list of named metadata features now. See
 * Add iOS wrapper and example
 
 ## 1.0.6
-* Return document number including version part for Swiss driver licenses
+* Return the document number with version part for Swiss driver licenses
 * Update CSCA MasterList
 
 ## 1.0.5
