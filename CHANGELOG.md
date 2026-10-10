@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.5.2
+* Decode the Seal Studio demo seals of visibledigitalseal.org
+
 ## 2.5.1
 * Build OpenSSL without SM2, SM3 and SM4, saving about 0.6 MB
 
