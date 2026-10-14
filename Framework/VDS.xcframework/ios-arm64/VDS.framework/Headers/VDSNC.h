@@ -29,14 +29,14 @@ __attribute__((visibility("default")))
 
 @property (nonatomic, strong) VDSNCHeader *header;
 @property (nonatomic, copy) NSArray<VDSFeature *> *features;
-@property (nonatomic, copy) NSData *sha256;
+@property (nonatomic, copy) NSData *digest;
 @property (nonatomic, copy) NSData *signature;
 @property (nonatomic, copy) NSData *certificate;
 @property (nonatomic, copy) NSString *name;
 
 - (instancetype)initWithHeader:(VDSNCHeader *)header
                       features:(NSArray<VDSFeature *> *)features
-                        sha256:(NSData *)sha256
+                        digest:(NSData *)digest
                      signature:(NSData *)signature
                    certificate:(NSData *)certificate
                           name:(NSString *)name;

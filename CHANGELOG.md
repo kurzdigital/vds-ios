@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.6.0
+* Hash IDB data by the signature algorithm, fixing Icelandic ID cards
+* Hash VDS-NC data by the signature algorithm (ES256, ES384, ES512)
+* Breaking: `digest` replaces `sha256` in IDB, VDS and VDS-NC
+* Breaking: iOS and Android results carry `digest` instead of `sha256`
+
 ## 2.5.2
 * Decode the Seal Studio demo seals of visibledigitalseal.org
 

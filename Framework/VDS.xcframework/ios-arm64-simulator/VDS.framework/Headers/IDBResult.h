@@ -21,7 +21,7 @@ __attribute__((visibility("default")))
 @property (nonatomic, copy) NSArray<VDSFeature *> *features;
 @property (nonatomic, copy) NSData *certificate;
 @property (nonatomic, copy) NSData *signature;
-@property (nonatomic, copy) NSData *sha256;
+@property (nonatomic, copy) NSData *digest;
 @property (nonatomic, copy) NSString *raw;
 @property (nonatomic, copy, nullable) NSString *profiles;
 
@@ -31,7 +31,7 @@ __attribute__((visibility("default")))
                       features:(NSArray<VDSFeature *> *)features
                    certificate:(NSData *)certificate
                      signature:(NSData *)signature
-                        sha256:(NSData *)sha256
+                        digest:(NSData *)digest
                            raw:(NSString *)raw;
 
 - (instancetype)initWithHeader:(IDBHeader *)header
@@ -40,7 +40,7 @@ __attribute__((visibility("default")))
                       features:(NSArray<VDSFeature *> *)features
                    certificate:(NSData *)certificate
                      signature:(NSData *)signature
-                        sha256:(NSData *)sha256
+                        digest:(NSData *)digest
                            raw:(NSString *)raw
                       profiles:(nullable NSString *)profiles;
 
