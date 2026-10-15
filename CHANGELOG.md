@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.7.0
+* Decode the national IDB messages of the Icelandic ID card: full name, face image
+* Decode the national IDB messages of German documents (BSI TR-03137 Part 1)
+* Add `profilesByCountry` for national IDB tags, which depend on the country
+
 ## 2.6.0
 * Hash IDB data by the signature algorithm, fixing Icelandic ID cards
 * Hash VDS-NC data by the signature algorithm (ES256, ES384, ES512)
